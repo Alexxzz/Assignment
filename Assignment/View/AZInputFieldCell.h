@@ -10,4 +10,6 @@
 
 @interface AZInputFieldCell : UITableViewCell
 
+@property(nonatomic,weak) IBOutlet UITextField *textField;
+
 @end

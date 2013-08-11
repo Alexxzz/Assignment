@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZLoginViewController : UIViewController
+@interface AZLoginViewController : UITableViewController
+
+@property(nonatomic,weak) IBOutlet UIButton *loginButton;
+@property(nonatomic,weak) IBOutlet UIButton *registerButton;
+
+- (IBAction)onLogin:(id)sender;
+- (IBAction)onRegister:(id)sender;
 
 @end

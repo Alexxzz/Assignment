@@ -27,6 +27,16 @@
 		8460A2A317B58F0400EFCB48 /* AZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460A2A117B58F0400EFCB48 /* AZMainViewController.m */; };
 		8460A2A617B59AEC00EFCB48 /* AZTopViewContollerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */; };
 		8460A2A717B59AEC00EFCB48 /* AZTopViewContollerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */; };
+		846C05FE17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846C05FC17B6E43E0036AAF3 /* Model.xcdatamodeld */; };
+		846C05FF17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846C05FC17B6E43E0036AAF3 /* Model.xcdatamodeld */; };
+		846C060217B6F7170036AAF3 /* AZSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060117B6F7170036AAF3 /* AZSplashViewController.m */; };
+		846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060117B6F7170036AAF3 /* AZSplashViewController.m */; };
+		846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
+		846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
+		846C060A17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */; };
+		846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */; };
+		846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
+		846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,15 @@
 		8460A2A117B58F0400EFCB48 /* AZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZMainViewController.m; sourceTree = "<group>"; };
 		8460A2A417B59AEC00EFCB48 /* AZTopViewContollerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZTopViewContollerSegue.h; sourceTree = "<group>"; };
 		8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZTopViewContollerSegue.m; sourceTree = "<group>"; };
+		846C05FD17B6E43E0036AAF3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		846C060017B6F7160036AAF3 /* AZSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSplashViewController.h; sourceTree = "<group>"; };
+		846C060117B6F7170036AAF3 /* AZSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSplashViewController.m; sourceTree = "<group>"; };
+		846C060417B6F72A0036AAF3 /* AZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginViewController.h; sourceTree = "<group>"; };
+		846C060517B6F72A0036AAF3 /* AZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewController.m; sourceTree = "<group>"; };
+		846C060817B6FBC90036AAF3 /* AZLoginViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginViewControllerSegue.h; sourceTree = "<group>"; };
+		846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewControllerSegue.m; sourceTree = "<group>"; };
+		846C060C17B700290036AAF3 /* AZInputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInputFieldCell.h; sourceTree = "<group>"; };
+		846C060D17B700290036AAF3 /* AZInputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInputFieldCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				8452BDF817B57CAA00C7769D /* Classes */,
+				8460A29317B5812900EFCB48 /* Resources */,
 				8452BE1617B57CAB00C7769D /* Tests */,
 				8452BDF917B57CAA00C7769D /* Supporting Files */,
 				8452BDF117B57CAA00C7769D /* Frameworks */,
-				8460A29317B5812900EFCB48 /* Resources */,
 				8452BDF017B57CAA00C7769D /* Products */,
-				1A436B13129340439825BC07 /* Pods/Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +162,7 @@
 		8452BDF917B57CAA00C7769D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1A436B13129340439825BC07 /* Pods/Pods.xcconfig */,
 				8452BDFA17B57CAA00C7769D /* Assignment-Info.plist */,
 				8452BDFB17B57CAA00C7769D /* InfoPlist.strings */,
 				8452BDFE17B57CAA00C7769D /* main.m */,
@@ -180,6 +199,7 @@
 				8460A29517B5812900EFCB48 /* Default.png */,
 				8460A29617B5812900EFCB48 /* Default@2x.png */,
 				8460A29A17B581EB00EFCB48 /* Storyboard.storyboard */,
+				846C05FC17B6E43E0036AAF3 /* Model.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,6 +221,8 @@
 		8460A29E17B58ED100EFCB48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				846C060C17B700290036AAF3 /* AZInputFieldCell.h */,
+				846C060D17B700290036AAF3 /* AZInputFieldCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +234,12 @@
 				8460A2A117B58F0400EFCB48 /* AZMainViewController.m */,
 				8460A2A417B59AEC00EFCB48 /* AZTopViewContollerSegue.h */,
 				8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */,
+				846C060017B6F7160036AAF3 /* AZSplashViewController.h */,
+				846C060117B6F7170036AAF3 /* AZSplashViewController.m */,
+				846C060417B6F72A0036AAF3 /* AZLoginViewController.h */,
+				846C060517B6F72A0036AAF3 /* AZLoginViewController.m */,
+				846C060817B6FBC90036AAF3 /* AZLoginViewControllerSegue.h */,
+				846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -363,6 +391,11 @@
 				8452BE0317B57CAA00C7769D /* AZAppDelegate.m in Sources */,
 				8460A2A217B58F0400EFCB48 /* AZMainViewController.m in Sources */,
 				8460A2A617B59AEC00EFCB48 /* AZTopViewContollerSegue.m in Sources */,
+				846C05FE17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
+				846C060217B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
+				846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
+				846C060A17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
+				846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +406,11 @@
 				8452BE1E17B57CAB00C7769D /* AssignmentTests.m in Sources */,
 				8460A2A317B58F0400EFCB48 /* AZMainViewController.m in Sources */,
 				8460A2A717B59AEC00EFCB48 /* AZTopViewContollerSegue.m in Sources */,
+				846C05FF17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
+				846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
+				846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
+				846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
+				846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +589,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		846C05FC17B6E43E0036AAF3 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				846C05FD17B6E43E0036AAF3 /* Model.xcdatamodel */,
+			);
+			currentVersion = 846C05FD17B6E43E0036AAF3 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8452BDE717B57CAA00C7769D /* Project object */;
 }
