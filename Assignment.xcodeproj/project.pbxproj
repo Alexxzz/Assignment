@@ -37,6 +37,11 @@
 		846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */; };
 		846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 		846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
+		84A206CE17B7DD9C0015975D /* AZLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206CD17B7DD9C0015975D /* AZLoginController.m */; };
+		84A206CF17B7DD9C0015975D /* AZLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206CD17B7DD9C0015975D /* AZLoginController.m */; };
+		84A206D217B7DFC00015975D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206D117B7DFC00015975D /* KeychainItemWrapper.m */; };
+		84A206D317B7DFC00015975D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206D117B7DFC00015975D /* KeychainItemWrapper.m */; };
+		84A206D517B7E00B0015975D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A206D417B7E00B0015975D /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,11 @@
 		846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewControllerSegue.m; sourceTree = "<group>"; };
 		846C060C17B700290036AAF3 /* AZInputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInputFieldCell.h; sourceTree = "<group>"; };
 		846C060D17B700290036AAF3 /* AZInputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInputFieldCell.m; sourceTree = "<group>"; };
+		84A206CC17B7DD9C0015975D /* AZLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginController.h; sourceTree = "<group>"; };
+		84A206CD17B7DD9C0015975D /* AZLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginController.m; sourceTree = "<group>"; };
+		84A206D017B7DFC00015975D /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		84A206D117B7DFC00015975D /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		84A206D417B7E00B0015975D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A206D517B7E00B0015975D /* Security.framework in Frameworks */,
 				8452BDF317B57CAA00C7769D /* UIKit.framework in Frameworks */,
 				8452BDF517B57CAA00C7769D /* Foundation.framework in Frameworks */,
 				8452BDF717B57CAA00C7769D /* CoreGraphics.framework in Frameworks */,
@@ -136,6 +147,7 @@
 		8452BDF117B57CAA00C7769D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84A206D417B7E00B0015975D /* Security.framework */,
 				8452BDF217B57CAA00C7769D /* UIKit.framework */,
 				8452BDF417B57CAA00C7769D /* Foundation.framework */,
 				8452BDF617B57CAA00C7769D /* CoreGraphics.framework */,
@@ -207,6 +219,10 @@
 		8460A29C17B58ED100EFCB48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84A206CC17B7DD9C0015975D /* AZLoginController.h */,
+				84A206CD17B7DD9C0015975D /* AZLoginController.m */,
+				84A206D017B7DFC00015975D /* KeychainItemWrapper.h */,
+				84A206D117B7DFC00015975D /* KeychainItemWrapper.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -396,6 +412,8 @@
 				846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
 				846C060A17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
 				846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
+				84A206CE17B7DD9C0015975D /* AZLoginController.m in Sources */,
+				84A206D217B7DFC00015975D /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +429,8 @@
 				846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
 				846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
 				846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
+				84A206CF17B7DD9C0015975D /* AZLoginController.m in Sources */,
+				84A206D317B7DFC00015975D /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

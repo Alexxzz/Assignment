@@ -8,6 +8,7 @@
 
 #import "AZLoginViewController.h"
 #import "AZInputFieldCell.h"
+#import "AZLoginController.h"
 
 typedef NS_ENUM(NSUInteger, eLoginTableCell) {
     eLoginTableCell_username = 0,
@@ -22,21 +23,15 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
 @implementation AZLoginViewController
 {
     BOOL _isRegistring;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    
+    AZLoginController *_loginController;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    _loginController = [[AZLoginController alloc] init];
 }
 
 #pragma mark - IB Actions
