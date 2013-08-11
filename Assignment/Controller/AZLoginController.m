@@ -15,7 +15,7 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
 @implementation AZLoginController
 
 #pragma mark - Internal methods
-- (KeychainItemWrapper *)keychainItemWrapperForAccount:(NSString *)account {
++ (KeychainItemWrapper *)keychainItemWrapperForAccount:(NSString *)account {
     if ([account length] == 0)
         return nil;
     
@@ -24,34 +24,34 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
                                                accessGroup:nil];
 }
 
-- (NSString *)passwordForUsername:(NSString *)username {
++ (NSString *)passwordForUsername:(NSString *)username {
     KeychainItemWrapper *existingKeychainItem = [self keychainItemWrapperForAccount:username];
     NSString *password = [existingKeychainItem objectForKey:(__bridge id)(kSecValueData)];
     
     return password;
 }
 
-- (void)setCurrentUsername:(NSString *)username {
++ (void)setCurrentUsername:(NSString *)username {
     [self createUserWithUsername:kCurrentUsername
                         password:username];
 }
 
 #pragma mark - Interface methods
-- (BOOL)isLoggedIn {
++ (BOOL)isLoggedIn {
     return ([[self currentUsername] length] > 0);
 }
 
-- (NSString *)currentUsername {
++ (NSString *)currentUsername {
     return [self passwordForUsername:kCurrentUsername];
 }
 
-- (void)logout {
++ (void)logout {
     KeychainItemWrapper *currentAccItem = [self keychainItemWrapperForAccount:kCurrentUsername];
     [currentAccItem setObject:@""
                        forKey:(__bridge id)(kSecValueData)];
 }
 
-- (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password {
++ (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password {
     NSString *storedPass = [self passwordForUsername:username];
     if ([storedPass length] == 0)
         return NO; // Username does not exists
@@ -64,7 +64,13 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
     return NO; // Wrong password
 }
 
-- (void)createUserWithUsername:(NSString *)username password:(NSString *)password {
++ (BOOL)usernameExists:(NSString *)username {
+    NSString *pass = [self passwordForUsername:username];
+    
+    return ([pass length] > 0);
+}
+
++ (void)createUserWithUsername:(NSString *)username password:(NSString *)password {
     if ([username length] == 0 || [password length] == 0)
         return;
     

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZLoginViewControllerSegue : UIStoryboardSegue
+@interface AZFadeViewControllerSegue : UIStoryboardSegue
 
 @end

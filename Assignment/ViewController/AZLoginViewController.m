@@ -23,20 +23,58 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
 @implementation AZLoginViewController
 {
     BOOL _isRegistring;
-    
-    AZLoginController *_loginController;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _loginController = [[AZLoginController alloc] init];
 }
 
 #pragma mark - IB Actions
+- (void)loginUser {
+    UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];
+    UITextField *passwordTextField = [self textFieldForCellWithType:eLoginTableCell_password];
+    
+    BOOL loggedIn = [AZLoginController loginWithUsername:usernameTextField.text
+                                                password:passwordTextField.text];
+    if (loggedIn == YES) {
+        [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+    } else {
+        [self showOkAlertWithText:NSLocalizedString(@"Username or password incorrect", @"Alert text shown if username or pass is incorrect")];
+        [usernameTextField becomeFirstResponder];
+    }
+}
+
+- (void)registerUser {
+    UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];
+    UITextField *passwordTextField = [self textFieldForCellWithType:eLoginTableCell_password];
+    UITextField *repeatPassTextField = [self textFieldForCellWithType:eLoginTableCell_repeatPassword];
+    
+    NSString *username = usernameTextField.text;
+    NSString *pass = passwordTextField.text;
+    
+    if ([AZLoginController usernameExists:username]) {
+        [self showOkAlertWithText:NSLocalizedString(@"Username exists", @"Alert text shown if user tries to reg with exsiting username")];
+        [usernameTextField becomeFirstResponder];
+    } else {
+        if ([pass isEqualToString:repeatPassTextField.text] == NO) {
+            [self showOkAlertWithText:NSLocalizedString(@"Please repeat password", @"Alert text shown if password check during reg fails")];
+            [repeatPassTextField becomeFirstResponder];
+        } else {
+            [AZLoginController createUserWithUsername:username
+                                             password:pass];
+            [AZLoginController loginWithUsername:username
+                                        password:pass];
+            
+            [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+        }
+    }
+}
+
 - (IBAction)onLogin:(id)sender {
-    [self performSegueWithIdentifier:@"ShowMainVC" sender:self];
+    if (_isRegistring)
+        [self registerUser];
+    else
+        [self loginUser];
 }
 
 - (IBAction)onRegister:(id)sender {
@@ -83,11 +121,13 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
         case eLoginTableCell_password:
             cell.textField.placeholder = NSLocalizedString(@"Password", @"Password field placeholder text in login screen");
             cell.textField.returnKeyType = _isRegistring ? UIReturnKeyNext : UIReturnKeyGo;
+            cell.textField.secureTextEntry = YES;
             break;
             
         case eLoginTableCell_repeatPassword:
             cell.textField.placeholder = NSLocalizedString(@"Repeat password", @"Repeat password field placeholder text in login screen");
             cell.textField.returnKeyType = UIReturnKeyGo;
+            cell.textField.secureTextEntry = YES;
             break;
     }
     
@@ -134,28 +174,83 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
     return YES;
 }
 
+- (void)showOkAlertWithText:(NSString *)alertText {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Assigment", @"App title used in aler views")
+                                                    message:alertText
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"Ok", @"OK buton title")
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (BOOL)fieldsAreCorrect {
+    UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];
+    UITextField *passwordTextField = [self textFieldForCellWithType:eLoginTableCell_password];
+    UITextField *repeatPassTextField = [self textFieldForCellWithType:eLoginTableCell_repeatPassword];
+    
+    if ([usernameTextField.text length] == 0) {
+        [usernameTextField becomeFirstResponder];
+        
+        [self showOkAlertWithText:NSLocalizedString(@"Please enter username", @"If username is empty")];
+        
+        return NO;
+    } else if ([passwordTextField.text length] == 0) {
+        [passwordTextField becomeFirstResponder];
+        
+        [self showOkAlertWithText:NSLocalizedString(@"Please enter password", @"If password is empty")];
+        
+        return NO;
+    } else if ([repeatPassTextField.text length] == 0 && _isRegistring) {
+        [repeatPassTextField becomeFirstResponder];
+        
+        [self showOkAlertWithText:NSLocalizedString(@"Please enter password again", @"If repeat password is empty")];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     eLoginTableCell cellType = [self cellTypeForTextField:textField];
     
+    UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];
     UITextField *passwordTextField = [self textFieldForCellWithType:eLoginTableCell_password];
     UITextField *repeatPassTextField = [self textFieldForCellWithType:eLoginTableCell_repeatPassword];
     
     switch (cellType) {
         case eLoginTableCell_username: {
-            [passwordTextField becomeFirstResponder]; 
+            if ([usernameTextField.text length] == 0)
+                [self showOkAlertWithText:NSLocalizedString(@"Please enter username", @"If username is empty")];
+            else
+                [passwordTextField becomeFirstResponder];
+            
             break;
         }
             
         case eLoginTableCell_password: {
-            if (_isRegistring == YES)
-                [repeatPassTextField becomeFirstResponder];
-            else
-                [passwordTextField resignFirstResponder];
+            if ([passwordTextField.text length] == 0) {
+                [self showOkAlertWithText:NSLocalizedString(@"Please enter password", @"If password is empty")];
+            } else {
+                if (_isRegistring == YES) {
+                    [repeatPassTextField becomeFirstResponder];
+                } else {
+                    [passwordTextField resignFirstResponder];
+                    [self onLogin:nil];
+                }
+            }
+    
             break;
         }
             
         case eLoginTableCell_repeatPassword: {
-            [repeatPassTextField resignFirstResponder];
+            if ([repeatPassTextField.text length] == 0 && _isRegistring) {
+                [self showOkAlertWithText:NSLocalizedString(@"Please enter password again", @"If repeat password is empty")];
+            } else {
+                [repeatPassTextField resignFirstResponder];
+                [self onLogin:nil];
+            }
+            
             break;
         }
     }

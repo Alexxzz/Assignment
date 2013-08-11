@@ -10,12 +10,13 @@
 
 @interface AZLoginController : NSObject
 
-- (BOOL)isLoggedIn;
-- (NSString *)currentUsername;
-- (void)logout;
++ (BOOL)isLoggedIn;
++ (NSString *)currentUsername;
++ (void)logout;
 
-- (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password;
++ (BOOL)loginWithUsername:(NSString *)username password:(NSString *)password;
 
-- (void)createUserWithUsername:(NSString *)username password:(NSString *)password;
++ (BOOL)usernameExists:(NSString *)username;
++ (void)createUserWithUsername:(NSString *)username password:(NSString *)password;
 
 @end

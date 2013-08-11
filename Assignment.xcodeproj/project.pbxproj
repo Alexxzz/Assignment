@@ -33,8 +33,8 @@
 		846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060117B6F7170036AAF3 /* AZSplashViewController.m */; };
 		846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
 		846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
-		846C060A17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */; };
-		846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */; };
+		846C060A17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */; };
+		846C060B17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */; };
 		846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 		846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 		84A206CE17B7DD9C0015975D /* AZLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206CD17B7DD9C0015975D /* AZLoginController.m */; };
@@ -86,8 +86,8 @@
 		846C060117B6F7170036AAF3 /* AZSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSplashViewController.m; sourceTree = "<group>"; };
 		846C060417B6F72A0036AAF3 /* AZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginViewController.h; sourceTree = "<group>"; };
 		846C060517B6F72A0036AAF3 /* AZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewController.m; sourceTree = "<group>"; };
-		846C060817B6FBC90036AAF3 /* AZLoginViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginViewControllerSegue.h; sourceTree = "<group>"; };
-		846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewControllerSegue.m; sourceTree = "<group>"; };
+		846C060817B6FBC90036AAF3 /* AZFadeViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFadeViewControllerSegue.h; sourceTree = "<group>"; };
+		846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFadeViewControllerSegue.m; sourceTree = "<group>"; };
 		846C060C17B700290036AAF3 /* AZInputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInputFieldCell.h; sourceTree = "<group>"; };
 		846C060D17B700290036AAF3 /* AZInputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInputFieldCell.m; sourceTree = "<group>"; };
 		84A206CC17B7DD9C0015975D /* AZLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginController.h; sourceTree = "<group>"; };
@@ -246,18 +246,26 @@
 		8460A29F17B58ED100EFCB48 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84A206D617B839E00015975D /* CustomSegues */,
 				8460A2A017B58F0400EFCB48 /* AZMainViewController.h */,
 				8460A2A117B58F0400EFCB48 /* AZMainViewController.m */,
-				8460A2A417B59AEC00EFCB48 /* AZTopViewContollerSegue.h */,
-				8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */,
 				846C060017B6F7160036AAF3 /* AZSplashViewController.h */,
 				846C060117B6F7170036AAF3 /* AZSplashViewController.m */,
 				846C060417B6F72A0036AAF3 /* AZLoginViewController.h */,
 				846C060517B6F72A0036AAF3 /* AZLoginViewController.m */,
-				846C060817B6FBC90036AAF3 /* AZLoginViewControllerSegue.h */,
-				846C060917B6FBC90036AAF3 /* AZLoginViewControllerSegue.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84A206D617B839E00015975D /* CustomSegues */ = {
+			isa = PBXGroup;
+			children = (
+				8460A2A417B59AEC00EFCB48 /* AZTopViewContollerSegue.h */,
+				8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */,
+				846C060817B6FBC90036AAF3 /* AZFadeViewControllerSegue.h */,
+				846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */,
+			);
+			name = CustomSegues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,7 +418,7 @@
 				846C05FE17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
 				846C060217B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
 				846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
-				846C060A17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
+				846C060A17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */,
 				846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 				84A206CE17B7DD9C0015975D /* AZLoginController.m in Sources */,
 				84A206D217B7DFC00015975D /* KeychainItemWrapper.m in Sources */,
@@ -427,7 +435,7 @@
 				846C05FF17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
 				846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
 				846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
-				846C060B17B6FBC90036AAF3 /* AZLoginViewControllerSegue.m in Sources */,
+				846C060B17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */,
 				846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 				84A206CF17B7DD9C0015975D /* AZLoginController.m in Sources */,
 				84A206D317B7DFC00015975D /* KeychainItemWrapper.m in Sources */,

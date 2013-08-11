@@ -7,6 +7,7 @@
 //
 
 #import "AZSplashViewController.h"
+#import "AZLoginController.h"
 
 @interface AZSplashViewController ()
 
@@ -14,33 +15,25 @@
 
 @implementation AZSplashViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     __weak AZSplashViewController *weakSelf = self;
-    double delayInSeconds = .1;
+    double delayInSeconds = 1.f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         AZSplashViewController *strongSelf = weakSelf;
-        [strongSelf performSegueWithIdentifier:@"ShowLogin" sender:strongSelf];
+        
+        NSString *segueId = [AZLoginController isLoggedIn] ? @"ShowMainUI" : @"ShowLogin";
+        
+        [strongSelf performSegueWithIdentifier:segueId
+                                        sender:strongSelf];
     });
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
