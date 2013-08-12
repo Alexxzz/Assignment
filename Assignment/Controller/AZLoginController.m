@@ -8,6 +8,7 @@
 
 #import "AZLoginController.h"
 #import "KeychainItemWrapper.h"
+#import "AZDataModelController.h"
 
 static NSString *kKeyChainIdentifier = @"AppKeychain";
 static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged in username
@@ -32,8 +33,16 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
 }
 
 + (void)setCurrentUsername:(NSString *)username {
-    [self createUserWithUsername:kCurrentUsername
-                        password:username];
+    KeychainItemWrapper *newKeyChainItem = [self keychainItemWrapperForAccount:kCurrentUsername];
+    
+    [newKeyChainItem setObject:kCurrentUsername
+                        forKey:(__bridge id)(kSecAttrAccount)];
+    
+    [newKeyChainItem setObject:username
+                        forKey:(__bridge id)(kSecValueData)];
+    
+    [newKeyChainItem setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked)
+                        forKey:(__bridge id)(kSecAttrAccessible)];
 }
 
 #pragma mark - Interface methods
@@ -58,6 +67,9 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
     
     if ([storedPass isEqualToString:password]) {
         [self setCurrentUsername:username];
+        
+        [[AZDataModelController sharedInstance] setCurrentUsername:username];
+        
         return YES;
     }
     
@@ -74,6 +86,9 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
     if ([username length] == 0 || [password length] == 0)
         return;
     
+    if ([[AZDataModelController sharedInstance] userWithUsername:username] != nil)
+        return;
+    
     KeychainItemWrapper *newKeyChainItem = [self keychainItemWrapperForAccount:username];
     
     [newKeyChainItem setObject:username
@@ -84,6 +99,9 @@ static NSString *kCurrentUsername = @"CurrentUsername"; // Used for store logged
     
     [newKeyChainItem setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked)
                         forKey:(__bridge id)(kSecAttrAccessible)];
+    
+    [[AZDataModelController sharedInstance] addNewUserWithUsername:username];
+    [[AZDataModelController sharedInstance] save];
 }
 
 @end

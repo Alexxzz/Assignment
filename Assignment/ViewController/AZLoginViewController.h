@@ -15,5 +15,6 @@
 
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onRegister:(id)sender;
+- (IBAction)onTapGesture:(id)sender;
 
 @end

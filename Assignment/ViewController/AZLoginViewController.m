@@ -25,10 +25,6 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
     BOOL _isRegistring;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 #pragma mark - IB Actions
 - (void)loginUser {
     UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];
@@ -71,6 +67,9 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
 }
 
 - (IBAction)onLogin:(id)sender {
+    if ([self fieldsAreCorrect] == NO)
+        return;
+    
     if (_isRegistring)
         [self registerUser];
     else
@@ -80,6 +79,10 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
 - (IBAction)onRegister:(id)sender {
     if (_isRegistring == NO) {
         _isRegistring = YES;
+        
+        [[self textFieldForCellWithType:eLoginTableCell_username] setText:@""];
+        [[self textFieldForCellWithType:eLoginTableCell_password] setText:@""];
+        [[self textFieldForCellWithType:eLoginTableCell_repeatPassword] setText:@""];
         
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:eLoginTableCell_repeatPassword inSection:0]]
                               withRowAnimation:UITableViewRowAnimationTop];
@@ -91,6 +94,12 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
                                                forState:UIControlStateNormal];
                          }];
     }
+}
+
+- (IBAction)onTapGesture:(id)sender {
+    [[self textFieldForCellWithType:eLoginTableCell_username] resignFirstResponder];
+    [[self textFieldForCellWithType:eLoginTableCell_password] resignFirstResponder];
+    [[self textFieldForCellWithType:eLoginTableCell_repeatPassword] resignFirstResponder];
 }
 
 #pragma mark - UITableView datasource/delegate
