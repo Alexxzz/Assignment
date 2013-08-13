@@ -15,12 +15,6 @@
 
 @implementation AZSplashViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     __weak AZSplashViewController *weakSelf = self;

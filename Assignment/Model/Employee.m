@@ -34,4 +34,12 @@
     return fullName;
 }
 
+- (NSString *)sectionTitle {
+    NSString *sectionTitle = nil;
+    if ([self.lastName length] > 0)
+        sectionTitle = [self.lastName substringToIndex:1];
+    
+    return sectionTitle;
+}
+
 @end

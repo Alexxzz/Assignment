@@ -13,12 +13,15 @@
 @interface AZEmployeeViewController : UITableViewController
 @property(nonatomic,strong) Employee *employee;
 
-@property(weak,nonatomic) IBOutlet UITextField *firstNameLabel;
-@property(weak,nonatomic) IBOutlet UITextField *lastNameLabel;
-@property(weak,nonatomic) IBOutlet UILabel *countryLabel;
-@property(weak,nonatomic) IBOutlet UIPickerView *countryPicker;
+@property(strong,nonatomic) IBOutlet UITextField *firstNameLabel;
+@property(strong,nonatomic) IBOutlet UITextField *lastNameLabel;
+@property(strong,nonatomic) IBOutlet UIPickerView *countryPicker;
+@property(strong,nonatomic) IBOutlet UIButton *removeButton;
+@property(strong,nonatomic) IBOutlet UILabel *countryTitleLabel;
+@property(strong,nonatomic) IBOutlet UILabel *countryLabel;
 
 - (IBAction)onSetProfilePicture:(id)sender;
 - (IBAction)onSave:(id)sender;
+- (IBAction)onRemoveButton:(id)sender;
 
 @end

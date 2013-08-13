@@ -69,9 +69,9 @@ static AZDataModelController *sharedInstance = nil;
 }
 
 - (NSFetchedResultsController *)employeesForCurrentUserFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate {
-    return [Employee MR_fetchAllGroupedBy:@"lastName"
+    return [Employee MR_fetchAllGroupedBy:@"sectionTitle"
                             withPredicate:[NSPredicate predicateWithFormat:@"user == %@", [self currentUser]]
-                                 sortedBy:@"lastName"
+                                 sortedBy:@"lastName,firstName"
                                 ascending:YES
                                  delegate:delegate];
 }
@@ -113,7 +113,5 @@ static AZDataModelController *sharedInstance = nil;
 - (void)save {
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
-
-#pragma mark - Internal methods
 
 @end

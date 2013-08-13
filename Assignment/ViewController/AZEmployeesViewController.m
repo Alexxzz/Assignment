@@ -20,6 +20,7 @@
 @implementation AZEmployeesViewController
 {
     AZDataModelController *_modelController;
+    NSFetchedResultsController *_fetchedController;
 }
 
 - (void)viewDidLoad {
@@ -27,14 +28,23 @@
     
     _modelController = [AZDataModelController sharedInstance];
     
+    _fetchedController = [_modelController employeesForCurrentUserFetchControllerWithDelegate:self];
+    
     self.emptyDMMessageLabel.text = NSLocalizedString(@"No Employees found. Please add new", @"Message text for employees table when DB is empty");
     [self.addNewEmployeeButton setTitle:NSLocalizedString(@"Add Employee", @"Add Employee button title") forState:UIControlStateNormal];
+}
+
+- (void)viewDidUnload {
+    self.emptyDMMessageFooterView = nil;
+    self.emptyDMMessageLabel = nil;
+    self.addNewEmployeeButton = nil;
+    [super viewDidUnload];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"viewEmployeeSegueId"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Employee *selectedEmployee = [self.fetchedController objectAtIndexPath:indexPath];
+        Employee *selectedEmployee = [_fetchedController objectAtIndexPath:indexPath];
         
         AZEmployeeViewController *employeeVC = segue.destinationViewController;
         employeeVC.employee = selectedEmployee;
@@ -46,20 +56,17 @@
     [self.navigationController.revealController showViewController:self.navigationController.revealController.leftViewController];
 }
 
-- (void)viewDidUnload {
-    [self setEmptyDMMessageFooterView:nil];
-    [self setEmptyDMMessageLabel:nil];
-    [self setAddNewEmployeeButton:nil];
-    [super viewDidUnload];
-}
-
 #pragma mark - UITableView datasource/delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedController sections] count];
+    NSInteger sectionsNum = [[_fetchedController sections] count];
+    
+    tableView.tableFooterView = (sectionsNum == 0) ? self.emptyDMMessageFooterView : nil;
+    
+    return sectionsNum;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[self.fetchedController sections][section] objects] count];
+    return [[[_fetchedController sections][section] objects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,64 +79,29 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[_fetchedController sections][section] indexTitle];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [_fetchedController sectionIndexTitles];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [_fetchedController sectionForSectionIndexTitle:title atIndex:index];
+}
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)idxPath {
-    Employee *employee = [self.fetchedController objectAtIndexPath:idxPath];
+    Employee *employee = [_fetchedController objectAtIndexPath:idxPath];
     
     cell.textLabel.text = employee.fullName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [employee.country intValue]];
+    cell.detailTextLabel.text = employee.country;
 }
 
 #pragma mark - NSFetchedResultsController
-- (NSFetchedResultsController *)fetchedController {
-    static NSFetchedResultsController *fetchedController = nil;
-    
-    if (fetchedController == nil) {
-        fetchedController = [_modelController employeesForCurrentUserFetchControllerWithDelegate:self];
-    }
-    
-    return fetchedController;
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
-    
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
-                    atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+    if (self.isViewLoaded == YES)
+        [self.tableView reloadData];
 }
-
 
 @end

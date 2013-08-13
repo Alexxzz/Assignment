@@ -13,12 +13,13 @@
 
 @interface Employee : NSManagedObject
 
-@property (nonatomic, retain) NSString * firstName;
-@property (nonatomic, retain) NSString * lastName;
-@property (nonatomic, retain) NSNumber * country;
-@property (nonatomic, retain) NSString * profilePictureUrl;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *country;
+@property (nonatomic, retain) NSString *profilePictureUrl;
 @property (nonatomic, retain) User *user;
 
 @property (nonatomic, readonly) NSString *fullName;
+@property (nonatomic, readonly) NSString *sectionTitle;
 
 @end

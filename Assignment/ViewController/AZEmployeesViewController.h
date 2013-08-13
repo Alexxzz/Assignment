@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AZEmployeesViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UIView *emptyDMMessageFooterView;
-@property (weak, nonatomic) IBOutlet UILabel *emptyDMMessageLabel;
-@property (weak, nonatomic) IBOutlet UIButton *addNewEmployeeButton;
+@property (strong, nonatomic) IBOutlet UIView *emptyDMMessageFooterView;
+@property (strong, nonatomic) IBOutlet UILabel *emptyDMMessageLabel;
+@property (strong, nonatomic) IBOutlet UIButton *addNewEmployeeButton;
 
 - (IBAction)onRevealLeftMenu:(UIBarButtonItem *)sender;
 
