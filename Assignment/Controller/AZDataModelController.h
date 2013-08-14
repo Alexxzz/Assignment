@@ -14,13 +14,12 @@
 @interface AZDataModelController : NSObject
 
 @property(nonatomic,copy) NSString *currentUsername;
+@property(nonatomic,strong,readonly) User *currentUser;
 
 + (instancetype)sharedInstance;
 
 - (User *)addNewUserWithUsername:(NSString *)username;
 - (User *)userWithUsername:(NSString *)username;
-
-- (User *)currentUser;
 
 - (Employee *)addNewEmployeeToCurrentUser;
 - (void)removeEmployee:(Employee *)employee;

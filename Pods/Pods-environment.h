@@ -19,9 +19,3 @@
 // Please contact the author.
 // Version: 1.0b2.
 
-// ViewUtils
-#define COCOAPODS_POD_AVAILABLE_ViewUtils
-#define COCOAPODS_VERSION_MAJOR_ViewUtils 1
-#define COCOAPODS_VERSION_MINOR_ViewUtils 1
-#define COCOAPODS_VERSION_PATCH_ViewUtils 0
-

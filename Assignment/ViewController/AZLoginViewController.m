@@ -25,6 +25,36 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
     BOOL _isRegistring;
 }
 
+- (void)viewDidUnload {
+    self.loginButton = nil;
+    self.registerButton = nil;
+    
+    [super viewDidUnload];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[self textFieldForCellWithType:eLoginTableCell_username] setText:@""];
+    [[self textFieldForCellWithType:eLoginTableCell_password] setText:@""];
+    [[self textFieldForCellWithType:eLoginTableCell_repeatPassword] setText:@""];
+    
+    _isRegistring = NO;
+    
+    self.registerButton.alpha = 1.f;
+    [self.registerButton setTitle:NSLocalizedString(@"Register", @"Register button title on the login screen")
+                         forState:UIControlStateNormal];
+    
+    [self.loginButton setTitle:NSLocalizedString(@"Log in", @"Register button title on the login screen")
+                      forState:UIControlStateNormal];
+    
+    [self.tableView reloadData];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+}
+
 #pragma mark - IB Actions
 - (void)loginUser {
     UITextField *usernameTextField = [self textFieldForCellWithType:eLoginTableCell_username];

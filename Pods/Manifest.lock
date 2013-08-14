@@ -1,16 +1,13 @@
 PODS:
   - MagicalRecord (2.1)
   - PKRevealController (1.0b2)
-  - ViewUtils (1.1)
 
 DEPENDENCIES:
   - MagicalRecord
   - PKRevealController
-  - ViewUtils
 
 SPEC CHECKSUMS:
   MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
   PKRevealController: 631e6a3db833a0c660203c2dba0963109549ec8a
-  ViewUtils: 577b16fc6b770dff79f544c5c542ad278dd688ea
 
 COCOAPODS: 0.23.0

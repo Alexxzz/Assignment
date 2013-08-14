@@ -10,8 +10,8 @@
 
 @interface AZLoginViewController : UITableViewController
 
-@property(nonatomic,weak) IBOutlet UIButton *loginButton;
-@property(nonatomic,weak) IBOutlet UIButton *registerButton;
+@property(nonatomic,strong) IBOutlet UIButton *loginButton;
+@property(nonatomic,strong) IBOutlet UIButton *registerButton;
 
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onRegister:(id)sender;

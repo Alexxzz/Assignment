@@ -31,13 +31,21 @@ static const CGFloat kPickerHeight = 490.f;
     _modelController = [AZDataModelController sharedInstance];
     _isNewEmployee = (_employee == nil);
     
+    _countries = [self getCountiesArray];
+    
     NSString *title = nil;
+    NSString *country = nil;
     if (_isNewEmployee) {
         title = NSLocalizedString(@"New Employee", @"Nav bar title for new employee VC");
+        country = NSLocalizedString(@"Not set", @"When country not set");
         
         _employee = [_modelController addNewEmployeeToCurrentUser];
     } else {
         title = _employee.fullName;
+        country = _employee.country;
+        NSUInteger row = [_countries indexOfObject:country];
+        if (row != NSNotFound)
+            [self.countryPicker selectRow:row inComponent:0 animated:NO];
     }
     self.navigationItem.title = title;
     
@@ -45,11 +53,15 @@ static const CGFloat kPickerHeight = 490.f;
     self.lastNameLabel.text = _employee.lastName;
     
     self.countryTitleLabel.text = NSLocalizedString(@"Country", @"Country selection cell title");
-    self.countryLabel.text = NSLocalizedString(@"Not set", @"When country not set");
-    
-    _countries = [self getCountiesArray];
+    self.countryLabel.text = country;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+     if (_isNewEmployee == YES)
+         [_employee MR_deleteEntity];
+}
+
+#pragma mark - Countries
 - (NSArray *)getCountiesArray {
     NSLocale *locale = [NSLocale currentLocale];
     NSArray *countryArray = [NSLocale ISOCountryCodes];

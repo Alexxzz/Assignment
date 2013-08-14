@@ -45,7 +45,7 @@
                                     <rect key="frame" x="20" y="20" width="280" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Login">
+                                    <state key="normal" title="Log in">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -109,7 +109,7 @@
                     <connections>
                         <outlet property="loginButton" destination="caw-j8-WiQ" id="ZS4-Ti-Zo6"/>
                         <outlet property="registerButton" destination="aml-DQ-YDY" id="Da9-8w-dIj"/>
-                        <segue destination="pK9-Qp-W8o" kind="modal" identifier="ShowMainVC" modalTransitionStyle="flipHorizontal" id="fKX-zK-vjg"/>
+                        <segue destination="pK9-Qp-W8o" kind="push" identifier="ShowMainVC" id="fKX-zK-vjg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcw-jJ-C8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,7 +167,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="ggU-Sf-QWr" kind="push" identifier="newEmployeeSegueId" id="oqo-R0-nho"/>
+                                        <segue destination="ggU-Sf-QWr" kind="push" identifier="" id="oqo-R0-nho"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -220,7 +220,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7yy-eZ-j5K">
                             <connections>
-                                <segue destination="ggU-Sf-QWr" kind="push" identifier="newEmployeeSegueId" id="AOK-Un-h2Y"/>
+                                <segue destination="ggU-Sf-QWr" kind="push" identifier="" id="AOK-Un-h2Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -474,41 +474,113 @@
             </objects>
             <point key="canvasLocation" x="-163" y="469"/>
         </scene>
-        <!--View Controller - Web Browser-->
+        <!--Web View Controller - Web Browser-->
         <scene sceneID="EQM-NF-KJG">
             <objects>
-                <viewController id="k4o-3k-1Mg" sceneMemberID="viewController">
+                <viewController id="k4o-3k-1Mg" customClass="AZWebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T5R-pI-wXg">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="J27-9T-PDK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="461"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="k4o-3k-1Mg" id="e72-qy-xcg"/>
+                                </connections>
                             </webView>
+                            <view contentMode="scaleToFill" id="7pF-Ep-z4C">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="always" id="0S0-zq-Py9">
+                                        <rect key="frame" x="9" y="7" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k4o-3k-1Mg" id="gpJ-gG-cyE"/>
+                                        </connections>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" momentary="YES" id="4ji-Hd-P4O">
+                                        <rect key="frame" x="217" y="7" width="96" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="&lt;"/>
+                                            <segment title=">"/>
+                                            <segment title="" image="refresh-icon.png"/>
+                                        </segments>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="onControllPressed:" destination="k4o-3k-1Mg" eventType="valueChanged" id="esC-HT-rfC"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Web Browser" id="dar-Ch-Lsz">
-                        <barButtonItem key="leftBarButtonItem" image="slideImg.png" id="hkd-cC-hCO"/>
+                        <barButtonItem key="leftBarButtonItem" image="slideImg.png" id="hkd-cC-hCO">
+                            <connections>
+                                <action selector="onRevealLeftMenu:" destination="k4o-3k-1Mg" id="976-QV-Ucg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressField" destination="0S0-zq-Py9" id="11O-kV-YUo"/>
+                        <outlet property="webView" destination="J27-9T-PDK" id="a3X-vE-Gkd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tE7-JY-Fls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="489"/>
         </scene>
-        <!--View Controller - Profile-->
+        <!--Profile View Controller - Profile-->
         <scene sceneID="dFe-DK-cuT">
             <objects>
-                <viewController id="lLo-w8-trj" sceneMemberID="viewController">
+                <viewController id="lLo-w8-trj" customClass="AZProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nEJ-Lc-rJJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aD2-2F-Q0m">
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nip-j6-iGY">
+                                <rect key="frame" x="20" y="49" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogOutButton:" destination="lLo-w8-trj" eventType="touchUpInside" id="7B1-uP-xuD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="pdA-PD-Jmu">
-                        <barButtonItem key="leftBarButtonItem" image="slideImg.png" id="vOO-FR-f2y"/>
+                        <barButtonItem key="leftBarButtonItem" image="slideImg.png" id="vOO-FR-f2y">
+                            <connections>
+                                <action selector="onRevealLeftMenu:" destination="lLo-w8-trj" id="2hz-Ac-f3o"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentUsername" destination="aD2-2F-Q0m" id="YZS-Zu-fg5"/>
+                        <outlet property="logOutButton" destination="Nip-j6-iGY" id="ZIG-I4-Lbd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cho-Pd-1Nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -599,15 +671,84 @@
     <resources>
         <image name="avatar-placeholder-big.png" width="60" height="60"/>
         <image name="avatar-placeholder.png" width="30" height="30"/>
+        <image name="refresh-icon.png" width="30" height="28"/>
         <image name="slideImg.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AZEmployeeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZEmployeeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onRemoveButton:"/>
+                <relationship kind="action" name="onSave:"/>
+                <relationship kind="action" name="onSetProfilePicture:"/>
+                <relationship kind="outlet" name="countryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countryPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="countryTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstNameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AZEmployeesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZEmployeesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onRevealLeftMenu:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="addNewEmployeeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="emptyDMMessageFooterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="emptyDMMessageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AZInputFieldCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZInputFieldCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AZLoginViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onLogin:"/>
+                <relationship kind="action" name="onRegister:"/>
+                <relationship kind="action" name="onTapGesture:"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AZMainViewController" superclassName="PKRevealController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZMainViewController.h"/>
+        </class>
+        <class className="AZProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onLogOutButton:"/>
+                <relationship kind="action" name="onRevealLeftMenu:"/>
+                <relationship kind="outlet" name="currentUsername" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logOutButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AZSplashViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZSplashViewController.h"/>
+        </class>
+        <class className="AZWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AZWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onControllPressed:"/>
+                <relationship kind="action" name="onRevealLeftMenu:"/>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PKRevealController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="AOK-Un-h2Y"/>
+        <segue reference="oqo-R0-nho"/>
         <segue reference="fKX-zK-vjg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,9 @@
 static AZDataModelController *sharedInstance = nil;
 
 @implementation AZDataModelController
+{
+    User *_currentUser;
+}
 
 #pragma mark - Singelton
 + (instancetype)sharedInstance {
@@ -65,7 +68,6 @@ static AZDataModelController *sharedInstance = nil;
 
 - (void)removeEmployee:(Employee *)employee {
     [employee MR_deleteEntity];
-    
 }
 
 - (NSFetchedResultsController *)employeesForCurrentUserFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate {
@@ -86,20 +88,25 @@ static AZDataModelController *sharedInstance = nil;
 }
 
 - (User *)currentUser {
-    static User *currentUser = nil;
-    
-    if (currentUser == nil) {
+    if (_currentUser == nil) {
         if (_currentUsername == nil) {
             NSLog(@"_currentUsername == nil");
             return nil;
         }
         
-        currentUser = [self userWithUsername:_currentUsername];
-        if (currentUser == nil)
-            currentUser = [self addNewUserWithUsername:_currentUsername];
+        _currentUser = [self userWithUsername:_currentUsername];
+        if (_currentUser == nil)
+            _currentUser = [self addNewUserWithUsername:_currentUsername];
     }
     
-    return currentUser;
+    return _currentUser;
+}
+
+- (void)setCurrentUsername:(NSString *)currentUsername {
+    if ([_currentUsername isEqualToString:currentUsername] == NO) {
+        _currentUsername = [currentUsername copy];
+        _currentUser = nil;
+    }
 }
 
 #pragma mark - Saving
