@@ -19,6 +19,12 @@
 		8452BE1317B57CAB00C7769D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8452BDF417B57CAA00C7769D /* Foundation.framework */; };
 		8452BE1B17B57CAB00C7769D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8452BE1917B57CAB00C7769D /* InfoPlist.strings */; };
 		8452BE1E17B57CAB00C7769D /* AssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452BE1D17B57CAB00C7769D /* AssignmentTests.m */; };
+		845A902217BB156A0013D297 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A901F17BB156A0013D297 /* background.png */; };
+		845A902317BB156A0013D297 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A901F17BB156A0013D297 /* background.png */; };
+		845A902417BB156A0013D297 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A902017BB156A0013D297 /* background@2x.png */; };
+		845A902517BB156A0013D297 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A902017BB156A0013D297 /* background@2x.png */; };
+		845A902617BB156A0013D297 /* m2mobi_logo_big3.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A902117BB156A0013D297 /* m2mobi_logo_big3.png */; };
+		845A902717BB156A0013D297 /* m2mobi_logo_big3.png in Resources */ = {isa = PBXBuildFile; fileRef = 845A902117BB156A0013D297 /* m2mobi_logo_big3.png */; };
 		8460A29717B5812900EFCB48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460A29417B5812900EFCB48 /* Default-568h@2x.png */; };
 		8460A29817B5812900EFCB48 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460A29517B5812900EFCB48 /* Default.png */; };
 		8460A29917B5812900EFCB48 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8460A29617B5812900EFCB48 /* Default@2x.png */; };
@@ -33,8 +39,8 @@
 		846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060117B6F7170036AAF3 /* AZSplashViewController.m */; };
 		846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
 		846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060517B6F72A0036AAF3 /* AZLoginViewController.m */; };
-		846C060A17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */; };
-		846C060B17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */; };
+		846C060A17B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m */; };
+		846C060B17B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060917B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m */; };
 		846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 		846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C060D17B700290036AAF3 /* AZInputFieldCell.m */; };
 		849E938C17B978980014EDB0 /* slideImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 849E938A17B978980014EDB0 /* slideImg.png */; };
@@ -70,6 +76,8 @@
 		84A206D217B7DFC00015975D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206D117B7DFC00015975D /* KeychainItemWrapper.m */; };
 		84A206D317B7DFC00015975D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A206D117B7DFC00015975D /* KeychainItemWrapper.m */; };
 		84A206D517B7E00B0015975D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A206D417B7E00B0015975D /* Security.framework */; };
+		84DCD87E17BB240700D1FB91 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DCD87D17BB240700D1FB91 /* icon.png */; };
+		84DCD88017BB242500D1FB91 /* iconBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DCD87F17BB242500D1FB91 /* iconBig.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +109,9 @@
 		8452BE1A17B57CAB00C7769D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8452BE1C17B57CAB00C7769D /* AssignmentTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssignmentTests.h; sourceTree = "<group>"; };
 		8452BE1D17B57CAB00C7769D /* AssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssignmentTests.m; sourceTree = "<group>"; };
+		845A901F17BB156A0013D297 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		845A902017BB156A0013D297 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		845A902117BB156A0013D297 /* m2mobi_logo_big3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m2mobi_logo_big3.png; sourceTree = "<group>"; };
 		8460A29417B5812900EFCB48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8460A29517B5812900EFCB48 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8460A29617B5812900EFCB48 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -114,8 +125,8 @@
 		846C060117B6F7170036AAF3 /* AZSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSplashViewController.m; sourceTree = "<group>"; };
 		846C060417B6F72A0036AAF3 /* AZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoginViewController.h; sourceTree = "<group>"; };
 		846C060517B6F72A0036AAF3 /* AZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoginViewController.m; sourceTree = "<group>"; };
-		846C060817B6FBC90036AAF3 /* AZFadeViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFadeViewControllerSegue.h; sourceTree = "<group>"; };
-		846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFadeViewControllerSegue.m; sourceTree = "<group>"; };
+		846C060817B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZShowLoginViewControllerSegue.h; sourceTree = "<group>"; };
+		846C060917B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZShowLoginViewControllerSegue.m; sourceTree = "<group>"; };
 		846C060C17B700290036AAF3 /* AZInputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInputFieldCell.h; sourceTree = "<group>"; };
 		846C060D17B700290036AAF3 /* AZInputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInputFieldCell.m; sourceTree = "<group>"; };
 		849E938A17B978980014EDB0 /* slideImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideImg.png; sourceTree = "<group>"; };
@@ -145,6 +156,8 @@
 		84A206D017B7DFC00015975D /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		84A206D117B7DFC00015975D /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		84A206D417B7E00B0015975D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		84DCD87D17BB240700D1FB91 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		84DCD87F17BB242500D1FB91 /* iconBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconBig.png; path = ../iconBig.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +335,11 @@
 		849E93D217B98BB90014EDB0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84DCD87F17BB242500D1FB91 /* iconBig.png */,
+				84DCD87D17BB240700D1FB91 /* icon.png */,
+				845A901F17BB156A0013D297 /* background.png */,
+				845A902017BB156A0013D297 /* background@2x.png */,
+				845A902117BB156A0013D297 /* m2mobi_logo_big3.png */,
 				84A1443617BAF71800A5B813 /* refresh-icon.png */,
 				84A1443717BAF71800A5B813 /* refresh-icon@2x.png */,
 				849E93D917B99ACC0014EDB0 /* avatar-placeholder-big.png */,
@@ -342,8 +360,8 @@
 			children = (
 				8460A2A417B59AEC00EFCB48 /* AZTopViewContollerSegue.h */,
 				8460A2A517B59AEC00EFCB48 /* AZTopViewContollerSegue.m */,
-				846C060817B6FBC90036AAF3 /* AZFadeViewControllerSegue.h */,
-				846C060917B6FBC90036AAF3 /* AZFadeViewControllerSegue.m */,
+				846C060817B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.h */,
+				846C060917B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m */,
 			);
 			name = CustomSegues;
 			sourceTree = "<group>";
@@ -435,6 +453,11 @@
 				849E93DD17B99ACC0014EDB0 /* avatar-placeholder-big@2x.png in Resources */,
 				84A1443817BAF71800A5B813 /* refresh-icon.png in Resources */,
 				84A1443A17BAF71800A5B813 /* refresh-icon@2x.png in Resources */,
+				845A902217BB156A0013D297 /* background.png in Resources */,
+				845A902417BB156A0013D297 /* background@2x.png in Resources */,
+				845A902617BB156A0013D297 /* m2mobi_logo_big3.png in Resources */,
+				84DCD87E17BB240700D1FB91 /* icon.png in Resources */,
+				84DCD88017BB242500D1FB91 /* iconBig.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +472,9 @@
 				849E93DE17B99ACC0014EDB0 /* avatar-placeholder-big@2x.png in Resources */,
 				84A1443917BAF71800A5B813 /* refresh-icon.png in Resources */,
 				84A1443B17BAF71800A5B813 /* refresh-icon@2x.png in Resources */,
+				845A902317BB156A0013D297 /* background.png in Resources */,
+				845A902517BB156A0013D297 /* background@2x.png in Resources */,
+				845A902717BB156A0013D297 /* m2mobi_logo_big3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +538,7 @@
 				846C05FE17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
 				846C060217B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
 				846C060617B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
-				846C060A17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */,
+				846C060A17B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m in Sources */,
 				846C060E17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 				84A206CE17B7DD9C0015975D /* AZLoginController.m in Sources */,
 				84A206D217B7DFC00015975D /* KeychainItemWrapper.m in Sources */,
@@ -536,7 +562,7 @@
 				846C05FF17B6E43E0036AAF3 /* Model.xcdatamodeld in Sources */,
 				846C060317B6F7170036AAF3 /* AZSplashViewController.m in Sources */,
 				846C060717B6F72A0036AAF3 /* AZLoginViewController.m in Sources */,
-				846C060B17B6FBC90036AAF3 /* AZFadeViewControllerSegue.m in Sources */,
+				846C060B17B6FBC90036AAF3 /* AZShowLoginViewControllerSegue.m in Sources */,
 				846C060F17B700290036AAF3 /* AZInputFieldCell.m in Sources */,
 				84A206CF17B7DD9C0015975D /* AZLoginController.m in Sources */,
 				84A206D317B7DFC00015975D /* KeychainItemWrapper.m in Sources */,

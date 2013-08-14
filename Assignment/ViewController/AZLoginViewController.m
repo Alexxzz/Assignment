@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger, eLoginTableCell) {
                       forState:UIControlStateNormal];
     
     [self.tableView reloadData];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

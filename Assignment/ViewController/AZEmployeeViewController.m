@@ -54,11 +54,14 @@ static const CGFloat kPickerHeight = 490.f;
     
     self.countryTitleLabel.text = NSLocalizedString(@"Country", @"Country selection cell title");
     self.countryLabel.text = country;
+    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-     if (_isNewEmployee == YES)
+     if (_isNewEmployee == YES && [_employee.firstName length] == 0 && [_employee.lastName length] == 0 && [_employee.country length] == 0) {
          [_employee MR_deleteEntity];
+     }
 }
 
 #pragma mark - Countries
@@ -157,18 +160,16 @@ static const CGFloat kPickerHeight = 490.f;
         _employee.lastName = self.lastNameLabel.text;
         _employee.country = self.countryLabel.text;
         
-        [_modelController saveAsyncWithCompletion:^(BOOL success, NSError *error) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
+        [_modelController save];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 - (IBAction)onRemoveButton:(id)sender {
     [_employee MR_deleteEntity];
     
-    [_modelController saveAsyncWithCompletion:^(BOOL success, NSError *error) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    [_modelController save];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UIPickerViewDataSource, UIPickerViewDelegate
